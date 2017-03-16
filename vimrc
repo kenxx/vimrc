@@ -114,15 +114,17 @@ endif
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 " 如果想在 windows 安装就必需先安装 "git for window"，可查阅网上资料
 
+let g:WorkDirectory = "$HOME"
+
 set nocompatible                                      "禁用 Vi 兼容模式
 filetype off                                          "禁用文件类型侦测
 
 if g:islinux
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 else
-    set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle/')
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$VIM/vimfiles/bundle/')
 endif
 
 " 使用Vundle来管理插件，这个必须要有。
@@ -155,6 +157,9 @@ Bundle 'majutsushi/tagbar'
 Bundle 'taglist.vim'
 " Bundle 'TxtBrowser'
 " Bundle 'ZoomWin'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -246,7 +251,11 @@ if g:isGUI
     " colorscheme Tomorrow-Night-Eighties               "Gvim配色方案
     colorscheme murphy
 else
-    colorscheme Tomorrow-Night-Eighties               "终端配色方案
+    " colorscheme Tomorrow-Night-Bright              "终端配色方案
+    " colorscheme Tomorrow-Night                     "终端配色方案
+    " colorscheme darkburn                           "终端配色方案
+    " colorscheme desert_terminal                    "终端配色方案
+    colorscheme Tomorrow-Night-Eighties              "终端配色方案
 endif
 
 " 显示/隐藏菜单栏、工具栏、滚动条，可用 Ctrl + F11 切换
@@ -961,13 +970,13 @@ au BufRead,BufNewFile,BufEnter * cd %:p:h
 " let mapleader = ","
 
 " My Setting
-nmap ;ll :NERDTreeToggle /data<CR>
-nmap ;lw :NERDTree       /data<CR>
-nmap ;ls :NERDTree       /data<CR>
-nmap ;lm :NERDTree       /data<CR>
-nmap ;li :NERDTree       /data<CR>
+nmap ;ll :NERDTreeToggle<CR>
+nmap ;lw :NERDTree<CR>
+nmap ;ls :NERDTree<CR>
+nmap ;lm :NERDTree<CR>
+nmap ;li :NERDTree<CR>
 nmap ;ln :NERDTreeMirror<CR>
-nmap ;vim :e ~/.vimrc<CR>
+nmap ;vimrc :e ~/.vimrc<CR>
 nmap ;tn :tabn<CR>
 nmap ;tp :tabp<CR>
 nmap ;tl :tabl<CR>
@@ -981,7 +990,9 @@ nmap ;bp :bp<CR>
 nmap ;bd :bd<CR>
 nmap ;no :nohl<CR>
 nmap ;tag :TlistToggle<CR>
-nmap ;sv :source ~/.vimrc<CR>
+nmap ;sv :source $HOME/.vimrc<CR>
+nmap ;nh :set nohls<CR>
+nmap ;h :set hls<CR>
 
 "自动补全
 let s:extfname = expand("%:e")
