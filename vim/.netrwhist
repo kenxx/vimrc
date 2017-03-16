@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/data/servers/dev'
+let g:netrw_dirhist_2='/data/yaws'
+let g:netrw_dirhist_3='/data/soft/yaws'
+let g:netrw_dirhist_4='/data/console'
+let g:netrw_dirhist_5='/data/shanhai/console'
+let g:netrw_dirhist_6='/data/shanhai/server'
