@@ -18,6 +18,7 @@ do
 done
 
 echo 'Step 3: Install Vundle.vim'
+mkdir -p $HOME/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 echo 'Step 4: Install selected plugins'
